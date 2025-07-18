@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Beauty Studio - Premium Beauty Technician Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>Luxe Beauty Studio</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#booking" class="nav-link booking-btn">Book Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-up">
+                <h1>Transform Your Beauty Journey</h1>
+                <p>Experience premium beauty treatments with our expert technician. From skincare to advanced beauty solutions, we bring out your natural radiance.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToBooking()">
+                        <i class="fas fa-calendar-alt"></i> Book Appointment
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToServices()">
+                        <i class="fas fa-sparkles"></i> View Services
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <img src="image/pexels-cottonbro-3992870.jpg" alt="Beauty Technician at work">
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2>About Our Expert Beauty Technician</h2>
+                    <p class="lead">With over 8 years of experience in the beauty industry, I specialize in creating personalized beauty experiences that enhance your natural features and boost your confidence.</p>
+                    <div class="features">
+                        <div class="feature-item">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h4>Certified Professional</h4>
+                                <p>Licensed and certified with continuous education in latest techniques</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h4>Personalized Care</h4>
+                                <p>Tailored treatments designed specifically for your unique needs</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Safe & Hygienic</h4>
+                                <p>Strict hygiene protocols and premium quality products</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="image/pexels-element5-973406.jpg" alt="Professional Beauty Setup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Premium Services</h2>
+                <p>Discover our comprehensive range of beauty treatments designed to pamper and rejuvenate</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Facial Treatments</h3>
+                    <p>Deep cleansing, hydrating, and anti-aging facials using premium skincare products</p>
+                    <div class="service-price">From R350</div>
+                    <button class="btn btn-outline" onclick="selectService('Facial Treatment')">Select Service</button>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Lash Extensions</h3>
+                    <p>Classic, volume, and hybrid lash extensions for stunning, long-lasting results</p>
+                    <div class="service-price">From R450</div>
+                    <button class="btn btn-outline" onclick="selectService('Lash Extensions')">Select Service</button>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Eyebrow Shaping</h3>
+                    <p>Professional eyebrow threading, tinting, and microblading services</p>
+                    <div class="service-price">From R180</div>
+                    <button class="btn btn-outline" onclick="selectService('Eyebrow Shaping')">Select Service</button>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Makeup Application</h3>
+                    <p>Professional makeup for special occasions, weddings, and photoshoots</p>
+                    <div class="service-price">From R280</div>
+                    <button class="btn btn-outline" onclick="selectService('Makeup Application')">Select Service</button>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>Nail Care</h3>
+                    <p>Manicures, pedicures, and gel nail treatments with creative designs</p>
+                    <div class="service-price">From R220</div>
+                    <button class="btn btn-outline" onclick="selectService('Nail Care')">Select Service</button>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Skin Treatments</h3>
+                    <p>Microdermabrasion, chemical peels, and specialized skin rejuvenation</p>
+                    <div class="service-price">From R420</div>
+                    <button class="btn btn-outline" onclick="selectService('Skin Treatments')">Select Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Our Work Gallery</h2>
+                <p>See the beautiful transformations and professional results</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="image/pexels-brett-sayles-1314017.jpg" alt="Beauty Work Sample 1">
+                    <div class="gallery-overlay">
+                        <h4>Professional Beauty Treatment</h4>
+                        <p>Skilled application and attention to detail</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="image/pexels-cottonbro-3993449.jpg" alt="Beauty Work Sample 2">
+                    <div class="gallery-overlay">
+                        <h4>Beauty Consultation</h4>
+                        <p>Personalized care and professional guidance</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="image/pexels-cottonbro-3992870.jpg" alt="Beauty Work Sample 3">
+                    <div class="gallery-overlay">
+                        <h4>Expert Technique</h4>
+                        <p>Years of experience in beauty excellence</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="image/pexels-element5-973406.jpg" alt="Beauty Work Sample 4">
+                    <div class="gallery-overlay">
+                        <h4>Professional Setup</h4>
+                        <p>Clean, modern, and fully equipped studio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="booking-content">
+                <div class="booking-header" data-aos="fade-up">
+                    <h2>Book Your Appointment</h2>
+                    <p>Schedule your beauty session with our easy booking system</p>
+                </div>
+                <div class="booking-form-container" data-aos="fade-up" data-aos-delay="100">
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-group">
+                            <label for="clientName">Full Name</label>
+                            <input type="text" id="clientName" name="clientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service">Service</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="Facial Treatment">Facial Treatment</option>
+                                    <option value="Lash Extensions">Lash Extensions</option>
+                                    <option value="Eyebrow Shaping">Eyebrow Shaping</option>
+                                    <option value="Makeup Application">Makeup Application</option>
+                                    <option value="Nail Care">Nail Care</option>
+                                    <option value="Skin Treatments">Skin Treatments</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="time">Preferred Time</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Select time</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                    <option value="17:00">05:00 PM</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="duration">Duration</label>
+                                <select id="duration" name="duration" required>
+                                    <option value="">Select duration</option>
+                                    <option value="30 minutes">30 minutes</option>
+                                    <option value="45 minutes">45 minutes</option>
+                                    <option value="1 hour">1 hour</option>
+                                    <option value="1.5 hours">1.5 hours</option>
+                                    <option value="2 hours">2 hours</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Additional Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Any specific requirements or preferences..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <h2>Get In Touch</h2>
+                    <p>Ready to enhance your beauty? Contact us today to schedule your appointment or ask any questions.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>073 653 8207</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@luxebeautystudio.co.za</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Hours</h4>
+                                <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 9:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Professional Home Studio<br>Johannesburg, South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Luxe Beauty Studio</h3>
+                    <p>Your trusted beauty technician for premium beauty treatments and personalized care.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Facial Treatments</a></li>
+                        <li><a href="#services">Lash Extensions</a></li>
+                        <li><a href="#services">Eyebrow Shaping</a></li>
+                        <li><a href="#services">Makeup Application</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> 073 653 8207</p>
+                    <p><i class="fas fa-envelope"></i> info@luxebeautystudio.co.za</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Luxe Beauty Studio. All rights reserved. | Professional Beauty Technician Services</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/27736538207" target="_blank" class="whatsapp-link">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Booking Success Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-check-circle"></i>
+                <h3>Booking Request Sent!</h3>
+            </div>
+            <p>Your appointment request has been sent via WhatsApp. We'll confirm your booking shortly.</p>
+            <button class="btn btn-primary" onclick="closeModal()">Great!</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
