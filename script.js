@@ -32,6 +32,27 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
+});
+
+// Prevent menu close when clicking inside menu
+navMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
+// Handle mobile menu on resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -458,19 +479,76 @@ document.querySelector('.whatsapp-link').addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Luxe Beauty Studio website loaded successfully! 🌟');
     
-    // Add any additional initialization code here
-    
-    // Set up automatic form field focusing
-    const firstInput = document.querySelector('#bookingForm input');
-    if (firstInput) {
-        firstInput.addEventListener('focus', function() {
-            this.parentElement.classList.add('focused');
+    // Mobile-specific optimizations
+    if (window.innerWidth <= 768) {
+        // Reduce animation duration for mobile
+        AOS.init({
+            duration: 600,
+            once: true,
+            offset: 50,
+            disable: 'mobile'
         });
+        
+        // Optimize WhatsApp button for mobile
+        const whatsappBtn = document.querySelector('.whatsapp-link');
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            whatsappBtn.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        }
     }
     
     // Add smooth transitions to all interactive elements
     document.querySelectorAll('button, a, input, select, textarea').forEach(el => {
         el.style.transition = 'all 0.3s ease';
+    });
+    
+    // Fix mobile viewport height
+    const setVH = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    setVH();
+    window.addEventListener('resize', setVH);
+    window.addEventListener('orientationchange', setVH);
+    
+    // Improve mobile form experience
+    const inputs = document.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            if (window.innerWidth <= 768) {
+                setTimeout(() => {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        });
+    });
+    
+    // Optimize mobile scrolling
+    let ticking = false;
+    function updateScrollPosition() {
+        const scrolled = window.pageYOffset;
+        const navbar = document.getElementById('navbar');
+        
+        if (scrolled > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollPosition);
+            ticking = true;
+        }
     });
 });
 
